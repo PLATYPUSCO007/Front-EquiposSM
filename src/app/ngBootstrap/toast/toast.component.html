@@ -1,0 +1,12 @@
+<ngb-toast
+  *ngFor="let toast of toasts"
+  [class]="toast.classname"
+  [autohide]="true"
+  [delay]="toast.delay || 5000"
+  (hidden)="remove(toast)"
+>
+  <ng-template ngbToastHeader>
+    <i [class]="toast.icon"></i>&nbsp;&nbsp;Mensaje de alerta!
+  </ng-template>
+  {{ toast.text }}
+</ngb-toast>

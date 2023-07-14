@@ -1,0 +1,93 @@
+<h1 class="mt-5 mb-5 text-center text-primary-emphasis">
+  Control de Equipos de Computo
+</h1>
+<form
+  autocomplete="off"
+  [formGroup]="formLogin"
+  class="mx-auto w-50 border border-secondary"
+  style="background-color: #b7d4e4"
+  (submit)="login()"
+>
+  <div class="row pt-5 pb-5 justify-content-center">
+    <div class="col-auto">
+      <i class="fa-solid fa-user-tie fa-flip" style="font-size: 50px"></i>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-auto">
+      <label class="form-label">Usuario:</label>
+    </div>
+    <div class="col-auto">
+      <input
+        type="text"
+        name="user"
+        placeholder="Usuario"
+        class="form-control"
+        formControlName="user"
+        [ngClass]="{
+          'border border-danger': isFieldValid('user'),
+          'border border-success': !isFormValid
+        }"
+        cla
+      />
+    </div>
+  </div>
+  <div class="row mt-5 justify-content-center">
+    <div class="col-auto">
+      <label class="form-label">Contraseña:</label>
+    </div>
+    <div class="col-auto">
+      <input
+        type="password"
+        name="pass"
+        placeholder="****"
+        class="form-control"
+        formControlName="pass"
+        [ngClass]="{
+          'border border-danger': isFieldValid('pass'),
+          'border border-success': !isFormValid
+        }"
+      />
+    </div>
+  </div>
+  <div class="row mt-5 pb-5 justify-content-center">
+    <div class="col-auto">
+      <button class="btn btn-primary" [disabled]="isFormValid">
+        <div
+          class="spinner-grow text-secondary spinner-grow-sm"
+          role="status"
+          *ngIf="showLoad"
+          hidd
+        >
+          <span class="visually-hidden">Loading...</span>
+        </div>
+
+        Iniciar Sesion
+      </button>
+    </div>
+  </div>
+</form>
+
+<app-toast aria-live="polite" aria-atomic="true"></app-toast>
+
+<br />
+
+<pre>
+  <!-- Errores:
+  {{ formLogin.errors | json }}
+  {{ formLogin.touched }}
+  {{ formLogin.value | json }}
+  {{ formLogin.invalid }} -->
+
+  <!-- User:
+  TOUCHED: {{ formLogin.get("user")?.touched }}
+  ERRORS: {{ formLogin.get("user")?.errors | json }}
+  VALID: {{ formLogin.get("user")?.valid }}
+  PRISTINE: {{ formLogin.get("user")?.pristine }}
+
+  Pass:
+  TOUCHED: {{ formLogin.get("pass")?.touched }}
+  ERRORS: {{ formLogin.get("pass")?.errors | json }}
+  VALID: {{ formLogin.get("pass")?.valid | json }} -->
+
+</pre>

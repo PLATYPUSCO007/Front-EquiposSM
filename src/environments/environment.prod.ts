@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  baseUrlAPI: '',
+  USER_KEY: 'auth-user',
 };
